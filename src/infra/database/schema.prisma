@@ -10,6 +10,7 @@ generator client {
 model ShortenedUrl {
   id        String   @id @default(uuid())
   
+  title             String @default("Untitled")
   originalUrl       String @unique
   shortenedUrl      String @unique
   accessCount       Int  @default(0)

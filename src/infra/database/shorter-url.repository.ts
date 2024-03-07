@@ -3,13 +3,14 @@ import prisma from "."
 type CreateParams = {
   originalUrl: string
   shortenedUrl: string
+  title: string
 }
 
 
 export class ShorterUrlRepository {
   constructor() {}
 
-  create = async ({originalUrl, shortenedUrl}: CreateParams) => {
+  create = async ({originalUrl, shortenedUrl, title}: CreateParams) => {
     const alreadyExists = await prisma.shortenedUrl.findUnique({
       where: {
         originalUrl
@@ -24,7 +25,8 @@ export class ShorterUrlRepository {
     return await prisma.shortenedUrl.create({
       data: {
         originalUrl,
-        shortenedUrl
+        shortenedUrl,
+        title
       }
     })
   }
