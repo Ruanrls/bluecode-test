@@ -1,0 +1,21 @@
+1 - Create a POST endpoint that receives as a body param the URL to shorten and it
+returns as part of the response an URL with the shortest possible length.
+  - Create a post endpoint with { body: { url: string } }
+  - Create a service to shorten the url
+    - It should be smaller as possible //NOTE: Check again
+
+2 - Use NodeJS non blocking capabilities, crawl the URL that is shortened, pull the title from
+  the website, and store it.
+  - Crawl the URL an then save in DB
+    - Should save at dabase (create a model for that)
+
+3 - Create a route to get redirected to the original URL from the shortened URL, i.e:
+  From https://localhost:3000/a -> https://en.wikipedia.org/wiki/Genghis_Khan
+  - Create a route to redirect
+    - Save the URL with the shortned URL
+
+4 - Create a GET endpoint that returns the top 100 URLs most frequently accessed,
+including the title crawled from step 2.
+  - Get the most accessed websites.
+    - Need to save each access to a property of the URL at DB
+    - Return the top 100 URL accessed
