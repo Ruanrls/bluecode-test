@@ -18,14 +18,14 @@ export class ShortnerController {
     this.router.get("/shortner", this.topVisited)
   }
 
-  shortner = (req: Request, res: Response) => {
+  shortner = async (req: Request, res: Response) => {
     const url = req?.body?.url;
 
     if (!url) {
       return res.status(400).json({ message: "URL is required" });
     }
 
-    const smallerUrl = this.shortnerService.execute(url);
+    const smallerUrl = await this.shortnerService.execute(url);
     return res.status(200).json({ shorten: smallerUrl });
   };
 

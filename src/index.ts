@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json({ limit: "10kb" }))
 app.use(router)
 
-app.use((err: any, req: any, res: any, next: any) => {
+app.use(function (err: any, req: any, res: any, next: any){
   console.log("Something went wrong")
   next()
 })
